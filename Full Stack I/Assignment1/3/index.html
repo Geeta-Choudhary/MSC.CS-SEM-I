@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #rectangle {
+            width: 300px;
+            height: 200px;
+            background-color: lightcoral;
+            margin: 20px auto;
+            border: 2px dashed #ff5733;
+            position: relative;
+            overflow: hidden;
+        }
+        #draggableImage {
+            width: 100px;
+            cursor: move;
+            margin: 20px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Drag and Drop Image into Rectangle</h1>
+
+<div id="rectangle">Drop here</div>
+<img id="draggableImage" src="https://picsum.photos/100/100" alt="Draggable Image" draggable="true">
+
+<script>
+    const rectangle = document.getElementById('rectangle');
+    const image = document.getElementById('draggableImage');
+
+    // Handle drag start
+    image.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', e.target.id);
+    });
+
+    // Allow drop
+    rectangle.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
+
+    // Handle drop
+    rectangle.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('text/plain');
+        const draggableElement = document.getElementById(id);
+        const dropzone = e.target;
+
+        // Get the dropzone position and size
+        const dropzoneRect = dropzone.getBoundingClientRect();
+
+        // Place the image at the drop location
+        const offsetX = e.clientX - dropzoneRect.left - draggableElement.width / 2;
+        const offsetY = e.clientY - dropzoneRect.top - draggableElement.height / 2;
+
+        draggableElement.style.position = 'absolute';
+        draggableElement.style.left = `${offsetX}px`;
+        draggableElement.style.top = `${offsetY}px`;
+        dropzone.appendChild(draggableElement);
+    });
+</script>
+
+</body>
+</html>

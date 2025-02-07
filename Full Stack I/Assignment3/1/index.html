@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Slip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px 0;
+            width: 300px;
+        }
+        .salary-slip {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Employee Salary Slip</h1>
+    
+    <form id="salaryForm">
+        <label for="name">Employee Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="basicSalary">Basic Salary:</label>
+        <input type="number" id="basicSalary" required>
+
+        <button type="submit">Generate Salary Slip</button>
+    </form>
+
+    <div class="salary-slip" id="salarySlip">
+        <h2>Salary Slip</h2>
+        <p><strong>Name:</strong> <span id="employeeName"></span></p>
+        <p><strong>Basic Salary:</strong> ₹<span id="basicSalaryOutput"></span></p>
+        <p><strong>DA (20%):</strong> ₹<span id="da"></span></p>
+        <p><strong>HRA (15%):</strong> ₹<span id="hra"></span></p>
+        <p><strong>PF (12%):</strong> ₹<span id="pf"></span></p>
+        <p><strong>TAX (10%):</strong> ₹<span id="tax"></span></p>
+        <p><strong>Gross Pay:</strong> ₹<span id="grossPay"></span></p>
+        <p><strong>Deductions:</strong> ₹<span id="deductions"></span></p>
+        <p><strong>Net Pay:</strong> ₹<span id="netPay"></span></p>
+    </div>
+
+    <script>
+        document.getElementById("salaryForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const basicSalary = parseFloat(document.getElementById("basicSalary").value);
+
+            // Calculating components
+            const da = basicSalary * 0.20; // DA is 20% of Basic Salary
+            const hra = basicSalary * 0.15; // HRA is 15% of Basic Salary
+            const pf = basicSalary * 0.12; // PF is 12% of Basic Salary
+            const tax = (basicSalary + da + hra) * 0.10; // TAX is 10% of Gross Salary
+            const grossPay = basicSalary + da + hra; // Gross Pay
+            const deductions = pf + tax; // Total Deductions
+            const netPay = grossPay - deductions; // Net Pay
+
+            // Displaying the Salary Slip
+            document.getElementById("employeeName").innerText = name;
+            document.getElementById("basicSalaryOutput").innerText = basicSalary.toFixed(2);
+            document.getElementById("da").innerText = da.toFixed(2);
+            document.getElementById("hra").innerText = hra.toFixed(2);
+            document.getElementById("pf").innerText = pf.toFixed(2);
+            document.getElementById("tax").innerText = tax.toFixed(2);
+            document.getElementById("grossPay").innerText = grossPay.toFixed(2);
+            document.getElementById("deductions").innerText = deductions.toFixed(2);
+            document.getElementById("netPay").innerText = netPay.toFixed(2);
+
+            // Show the salary slip
+            document.getElementById("salarySlip").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>

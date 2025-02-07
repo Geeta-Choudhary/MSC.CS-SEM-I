@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta chartse="UTF-8">
+      <title>Assignment1</title>
+</head>
+    <body>
+	<form action="q2.html" name="frm" method="get">
+	<fieldset>
+		<legend style="color:blue  ">Designing HTML5 Form</legend>
+
+<label for="title">Title:</label>
+<select>
+	<option name="t1">Mr</option>
+	<option name="t2">Mrs</option>
+	<option name="t3">Miss</option>
+	<option name="t4">Ms</option>
+	<option name="t5">Dr</option>
+</select><br><br>
+
+<label for="age">Age:</label><br>
+	<input type="number" min=20 max=45 id="age" name="age"><br><br>
+
+<label for="gen">Gender:</label><br>
+<label for="male">Male:</label>
+	<input type="radio" name="male" id="male" value="male"><br>
+<label for="female">Female:</label>
+	<input type="radio" name="male" id="female" value="female"><br><br>
+<label for="status">Status:</label>
+<select>
+	<option name="n1" selected>Employed</option>
+	<option name="n2">Unemployed</option>
+	<option name="n3">Student</option>
+</select><br><br>
+	<label for="dof">D.O.B:</label>
+	<input type="date" name="dof" id="dof" value="dof"><br><br>
+	
+	<fieldset>
+		<legend>
+			<label for="country">Country:</label>
+				<input type="text" id="country" placeholder="Enter Your Country Name" name="country">
+			<label for="state">State:</label>
+				<input type="text" id="state"  name="state">
+			<label for="city">City:</label>
+				<input type="text"  id="city" name="city">
+			<label for="pin">Pincode:</label>
+				<input type="text" name="pin">
+		</legend>
+	</fieldset>
+
+</fieldset>
+	<label for="comments">Comments:</label>
+	<textarea cols="15" rows="16" placefolder="Write your valueable feedback" required></textarea><br><br>
+		<input type="submit" value="Click here to submit the form">
+
+
+	</form>
+	</body>
+</html>
+

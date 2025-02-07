@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Capital</title>
+    <style>
+        /* Blinking effect for the header */
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            animation: blink 1s infinite;
+        }
+
+        /* Style for the capital text */
+        .capital {
+            color: #007BFF;
+            /* Blue color */
+            font-weight: bold;
+            font-size: 20px;
+            /* Font size */
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color:deeppink">Display Capital</h1>
+
+    <select id="countrySelect" onchange="displayCapital()">
+        <option value="">Select a country</option>
+        <option value="USA" selected>USA</option>
+        <option value="Canada">Canada</option>
+        <option value="UK">UK</option>
+        <option value="Germany">Germany</option>
+        <option value="France">France</option>
+    </select>
+
+    <p id="capitalDisplay" class="capital"></p>
+
+    <script>
+        function displayCapital() {
+            var country = document.getElementById("countrySelect").value;
+            var capital = "";
+
+            switch (country) {
+                case "USA":
+                    capital = "Washington, D.C.";
+                    break;
+                case "Canada":
+                    capital = "Ottawa";
+                    break;
+                case "UK":
+                    capital = "London";
+                    break;
+                case "Germany":
+                    capital = "Berlin";
+                    break;
+                case "France":
+                    capital = "Paris";
+                    break;
+                default:
+                    capital = "";
+            }
+
+            document.getElementById("capitalDisplay").innerText = capital;
+        }
+    </script>
+</body>
+
+</html>

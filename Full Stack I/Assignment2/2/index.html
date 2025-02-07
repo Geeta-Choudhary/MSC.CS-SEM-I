@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascading Stylesheets Demo</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External Stylesheet -->
+    <style>
+        /* Embedded Stylesheet */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 20px;
+        }
+        h1 {
+            color: #2e8b57;
+        }
+        .embedded {
+            color: #4682b4;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Cascading Stylesheets Demonstration</h1>
+
+<p class="embedded">This paragraph is styled using an embedded stylesheet.</p>
+
+<p style="color: orange; font-weight: bold;">This paragraph uses inline styles for its styling.</p>
+
+<p>This is a paragraph with default styling.</p>
+
+<div class="external">
+    <p>This is a paragraph styled using an external stylesheet.</p>
+</div>
+
+</body>
+</html>

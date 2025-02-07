@@ -1,0 +1,10 @@
+/* External Stylesheet */
+.external {
+    background-color: #ffe4e1;
+    padding: 10px;
+    border: 1px solid #ff69b4;
+}
+.external p {
+    color: #dc143c;
+    font-size: 18px;
+}

@@ -1,0 +1,82 @@
+<html>
+ <head>
+   <meta chartse="UTF-8">
+      <title>Assignment1</title>
+</head>
+    <body>
+	<h1> GeoLocation Example
+	</h1>
+		<button onclick="getLocation()">Where i am?
+		</button>
+		<br>
+	<label id="pos"></label>
+	<hr>
+		<h1>Canvas Example
+		</h1>
+			<canvas id="canvas" style="width:400px;height:400px;border:1px solid black;">
+			</canvas>
+				<script>
+					window.alert("This page shows the HTML5 Geolocation ")
+					var x = document.getElementById("Location");
+					var pos = document.getElementById("pos");
+					
+					function getLocation()
+					{
+						if (navigator.geolocation)
+						{
+							navigator.geolocation.getCurrentPosition(showPosition);
+						}
+						else
+						{
+						alert("Geolocation is not supporting");
+						}
+					}
+			
+					function showPositiontion(position) 
+					{
+						pos.innerText = "Your Current Location is " + "Latitude :" + position.coords.latitude + "Longitude :" + position.coords.longitude; 
+					}
+
+					var canvas= document.getElementById("canvas");
+					var context= canvas.getContext("2d");
+					
+					make_base();
+						
+					function make_base()
+					{
+						base_image = new Image();
+						base_image.src = "Z:\Full stack 1\Screenshot (2).png";
+							base_image.onload = function(){
+						context.drawImage(base_image,0,0);
+						}
+					}
+				</script>
+					<hr>
+					    <marquee direction="right" scrollamount="20" behavior="alternate"><h1 style="color:blueviolet">Svg Example</h1></marquee>
+					<svg width = "400" height = "100">
+						<circle cx="50" cy="50" r="30" fill="red"/>
+					</svg>
+					<svg width = "400" height = "100">
+						<rect width="200" height="100" x="10" y="10" fill="blue"/>
+					</svg>
+					<svg width = "400" height = "300">
+						<polygon points="100, 10 40,198 190,78 10,78 169,198"  fill="yellow" style="fill:line;stroke-width:5"/>
+					</svg>
+
+					<svg width="400" height="300">
+						<polygon points="200,50 300,100 300,200 200,250 100,200 100,100" 
+								 fill="pink" 
+								 stroke="black" 
+								 stroke-width="5" />
+					</svg>
+
+					<hr>
+					<h1>Audio & Vedio Example</h1>
+						<audio controls>
+							<source src="" type="audio/mp3">
+						</audio>
+						<video controls width="400" height="300">
+							<source src="" type="video/mp4">
+						</vedio>
+			</body>
+	</html>
